@@ -5,9 +5,14 @@
     <color name="colorAccent">#D22B34</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorStyle">#D22B34</color>
+    <!--    全透明色-->
+    <color name="colorTransparent">#00000000</color>
 
     <color name="main_activity_btn_press">#D22B34</color>
     <color name="main_activity_btn_default">#353535</color>
+    <color name="login_activity_edt_bg">#34131A</color>
+    <color name="login_activity_btn_press">#D6622E</color>
+    <color name="login_activity_btn_default">#D5282E</color>
 
     <!--透明度颜色-->
     <color name="alpha_15_white">#26FFFFFF</color>
