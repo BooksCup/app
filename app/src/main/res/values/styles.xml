@@ -13,4 +13,7 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="TransparentDialog" parent="@android:style/Theme.Holo.Light.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
 </resources>

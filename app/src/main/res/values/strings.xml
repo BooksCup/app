@@ -13,4 +13,6 @@
     <string name="login_pwd_hint">请输入密码</string>
     <string name="login">登录</string>
     <string name="register">注册</string>
+
+    <string name="user_not_exists">该用户不存在</string>
 </resources>

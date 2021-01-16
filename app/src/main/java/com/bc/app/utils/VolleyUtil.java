@@ -63,7 +63,7 @@ public class VolleyUtil {
      * @param listener      : 请求监听
      * @param errorListener : 请求失败监听
      */
-    public void httpPostRequest(String url, final Map<String, String> params, Response.Listener<String> listener, Response.ErrorListener errorListener) {
+    public void post(String url, final Map<String, String> params, Response.Listener<String> listener, Response.ErrorListener errorListener) {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, listener, errorListener) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {

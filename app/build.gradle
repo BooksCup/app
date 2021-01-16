@@ -44,4 +44,5 @@ dependencies {
     implementation 'com.facebook.fresco:fresco:1.13.0'
     // fastjson
     implementation 'com.alibaba:fastjson:1.2.55'
+    implementation 'com.wang.avi:library:2.1.3'
 }
