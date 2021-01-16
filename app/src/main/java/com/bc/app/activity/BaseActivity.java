@@ -1,25 +1,32 @@
 package com.bc.app.activity;
 
-import com.bc.app.widget.LoadingDialog;
+
+import com.bc.app.widget.dialog.LoadingDialog;
 
 import androidx.fragment.app.FragmentActivity;
 
 public class BaseActivity extends FragmentActivity {
 
-    private LoadingDialog mLoading;
+    private LoadingDialog mLoadingDialog;
 
+    /**
+     * 显示加载对话框
+     */
     public void showLoading() {
-        if (mLoading != null) {
+        if (null != mLoadingDialog) {
             return;
         }
-        mLoading = LoadingDialog.getInstance(this);
-        mLoading.show();
+        mLoadingDialog = LoadingDialog.getInstance(this);
+        mLoadingDialog.show();
     }
 
+    /**
+     * 隐藏加载对话框
+     */
     public void hideLoading() {
-        if (mLoading != null) {
-            mLoading.hide();
-            mLoading = null;
+        if (mLoadingDialog != null) {
+            mLoadingDialog.hide();
+            mLoadingDialog = null;
         }
     }
 
