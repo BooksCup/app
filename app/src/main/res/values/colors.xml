@@ -5,6 +5,11 @@
     <color name="colorAccent">#D22B34</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorStyle">#D22B34</color>
+    <color name="colorTextGray">#A9A9A9</color>
+
+    <color name="color32">#323232</color>
+    <color name="color50">#505050</color>
+
     <!--    全透明色-->
     <color name="colorTransparent">#00000000</color>
 
