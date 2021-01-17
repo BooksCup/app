@@ -20,14 +20,14 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <!--                <com.wd.winddots.view.VisitingCardView-->
-                <!--                    android:id="@+id/fragment_mineinfo_visiting_card"-->
-                <!--                    android:layout_width="match_parent"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:layout_marginStart="10dp"-->
-                <!--                    android:layout_marginLeft="10dp"-->
-                <!--                    android:layout_marginEnd="5dp"-->
-                <!--                    android:layout_marginRight="5dp" />-->
+                <com.bc.app.widget.view.BusinessCardView
+                    android:id="@+id/view_business_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginRight="5dp" />
 
                 <View
                     android:layout_width="match_parent"
