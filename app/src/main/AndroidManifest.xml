@@ -35,9 +35,15 @@
         <activity
             android:name=".activity.MainActivity"
             android:screenOrientation="portrait"></activity>
+
         <activity
             android:name=".activity.LoginActivity"
             android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name=".activity.SettingActivity"
+            android:screenOrientation="portrait"></activity>
+
     </application>
 
 </manifest>

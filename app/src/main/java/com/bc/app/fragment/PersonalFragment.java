@@ -1,5 +1,6 @@
 package com.bc.app.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +8,7 @@ import android.view.ViewGroup;
 
 import com.alibaba.fastjson.JSON;
 import com.bc.app.R;
+import com.bc.app.activity.SettingActivity;
 import com.bc.app.cons.Constant;
 import com.bc.app.entity.User;
 import com.bc.app.utils.PreferencesUtil;
@@ -18,6 +20,7 @@ import androidx.annotation.Nullable;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * 个人中心
@@ -73,5 +76,15 @@ public class PersonalFragment extends BaseFragment implements SwipeRefreshLayout
         }, volleyError -> {
             mMeSrl.setRefreshing(false);
         });
+    }
+
+    @OnClick({R.id.ll_setting})
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.ll_setting:
+                Intent intent = new Intent(getActivity(), SettingActivity.class);
+                startActivity(intent);
+                break;
+        }
     }
 }
