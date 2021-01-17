@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.view.View;
 
 import com.bc.app.R;
+import com.bc.app.utils.PreferencesUtil;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
@@ -28,7 +29,15 @@ public class SplashActivity extends FragmentActivity {
 
         mHandler = new Handler();
         mHandler.postDelayed(() -> {
-            Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
+            Intent intent;
+            if (PreferencesUtil.getInstance().isLogin()) {
+                // 已登录
+                intent = new Intent(SplashActivity.this, MainActivity.class);
+            } else {
+                // 未登录
+                intent = new Intent(SplashActivity.this, LoginActivity.class);
+            }
+
             startActivity(intent);
             finish();
         }, 1500);

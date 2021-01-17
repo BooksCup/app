@@ -51,8 +51,6 @@ public class LoginActivity extends BaseActivity {
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
         mVolleyUtil = VolleyUtil.getInstance(this);
-        PreferencesUtil.getInstance().init(this);
-
     }
 
     @OnClick({R.id.tv_login, R.id.tv_register})

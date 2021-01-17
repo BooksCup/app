@@ -5,9 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.alibaba.fastjson.JSON;
 import com.bc.app.R;
+import com.bc.app.cons.Constant;
 import com.bc.app.entity.User;
 import com.bc.app.utils.PreferencesUtil;
+import com.bc.app.utils.VolleyUtil;
 import com.bc.app.widget.view.BusinessCardView;
 
 import androidx.annotation.NonNull;
@@ -26,6 +29,11 @@ public class PersonalFragment extends BaseFragment implements SwipeRefreshLayout
     @BindView(R.id.view_business_card)
     BusinessCardView mBusinessCardView;
 
+    @BindView(R.id.srl_me)
+    SwipeRefreshLayout mMeSrl;
+
+    private VolleyUtil mVolleyUtil;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -42,12 +50,28 @@ public class PersonalFragment extends BaseFragment implements SwipeRefreshLayout
     }
 
     private void initView() {
+        mVolleyUtil = VolleyUtil.getInstance(getActivity());
         User user = PreferencesUtil.getInstance().getUser();
         mBusinessCardView.setDate(user);
+        mMeSrl.setOnRefreshListener(this);
     }
 
     @Override
     public void onRefresh() {
+        User user = PreferencesUtil.getInstance().getUser();
+        getUserInfo(user.getId());
+    }
 
+    private void getUserInfo(final String userId) {
+        String url = Constant.BASE_URL + "user/" + userId;
+
+        mVolleyUtil.get(url, response -> {
+            final User user = JSON.parseObject(response, User.class);
+            mBusinessCardView.setDate(user);
+            PreferencesUtil.getInstance().setUser(user);
+            mMeSrl.setRefreshing(false);
+        }, volleyError -> {
+            mMeSrl.setRefreshing(false);
+        });
     }
 }
