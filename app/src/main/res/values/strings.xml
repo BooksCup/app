@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">app</string>
+    <string name="chats">消息</string>
+    <string name="desktop">桌面</string>
+    <string name="discover">发现</string>
+    <string name="calendar">日历</string>
+    <string name="me">我</string>
+</resources>
