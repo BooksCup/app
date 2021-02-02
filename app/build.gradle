@@ -20,6 +20,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -31,9 +35,13 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22'
+    // volley
+    implementation 'com.mcxiaoke.volley:library:1.0.19'
     // butterknife
     implementation 'com.jakewharton:butterknife:10.2.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
     // fresco
     implementation 'com.facebook.fresco:fresco:1.13.0'
+    // fastjson
+    implementation 'com.alibaba:fastjson:1.2.55'
 }

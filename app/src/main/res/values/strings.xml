@@ -5,4 +5,7 @@
     <string name="discover">发现</string>
     <string name="calendar">日历</string>
     <string name="me">我</string>
+
+    <string name="network_unavailable">网络连接不可用，请检查网络</string>
+    <string name="network_time_out">网络超时，请重试</string>
 </resources>

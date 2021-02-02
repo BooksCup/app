@@ -29,8 +29,7 @@
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            fresco:placeholderImage="@mipmap/icon_default_app" />
+            android:layout_marginTop="10dp" />
 
         <TextView
             android:id="@+id/tv_name"

@@ -5,11 +5,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.alibaba.fastjson.JSONArray;
 import com.bc.app.R;
 import com.bc.app.adapter.AppAdapter;
+import com.bc.app.cons.Constant;
 import com.bc.app.entity.App;
+import com.bc.app.utils.VolleyUtil;
 import com.chad.library.adapter.base.BaseQuickAdapter;
-
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +22,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * 桌面
@@ -29,40 +33,36 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 public class DesktopFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener,
         BaseQuickAdapter.OnItemClickListener, View.OnClickListener, BaseQuickAdapter.OnItemLongClickListener {
 
-    private RecyclerView mAppRv;
+    @BindView(R.id.rv_app)
+    RecyclerView mAppRv;
+
+    @BindView(R.id.srl_app)
+    SwipeRefreshLayout mAppSrl;
+
     private AppAdapter mAppAdapter;
+    private VolleyUtil mVolleyUtil;
+    private List<App> mAppList = new ArrayList<>();
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_desktop, container, false);
+        View view = inflater.inflate(R.layout.fragment_desktop, container, false);
+        ButterKnife.bind(this, view);
+        return view;
     }
 
     private void initView() {
-        List<App> list = new ArrayList<>();
-        App application = new App();
-        application.setName("张三");
-        App application2 = new App();
-        application2.setName("李四");
-        App application3 = new App();
-        application3.setName("王五");
-        App application4 = new App();
-        application4.setName("周六");
-        App application5 = new App();
-        application5.setName("赵七");
-        list.add(application);
-        list.add(application2);
-        list.add(application3);
-        list.add(application4);
-        list.add(application5);
-
-        mAppAdapter = new AppAdapter(R.layout.item_app, list);
-        mAppRv = getView().findViewById(R.id.rv_app);
+        mVolleyUtil = VolleyUtil.getInstance(getActivity());
+        mAppAdapter = new AppAdapter(R.layout.item_app, mAppList);
 
         GridLayoutManager manager = new GridLayoutManager(getActivity(), 4);
         mAppRv.setLayoutManager(manager);
         mAppRv.setAdapter(mAppAdapter);
+
+        mAppSrl.setOnRefreshListener(this);
+        mAppSrl.setRefreshing(true);
+        getAppList();
     }
 
     @Override
@@ -78,7 +78,8 @@ public class DesktopFragment extends Fragment implements SwipeRefreshLayout.OnRe
 
     @Override
     public void onRefresh() {
-
+        mAppSrl.setRefreshing(true);
+        getAppList();
     }
 
     @Override
@@ -89,5 +90,18 @@ public class DesktopFragment extends Fragment implements SwipeRefreshLayout.OnRe
     @Override
     public boolean onItemLongClick(BaseQuickAdapter adapter, View view, int position) {
         return false;
+    }
+
+    private void getAppList() {
+
+        String url = Constant.BASE_URL + "app";
+
+        mVolleyUtil.get(url, response -> {
+            final List<App> appList = JSONArray.parseArray(response, App.class);
+            mAppAdapter.setNewData(appList);
+            mAppSrl.setRefreshing(false);
+        }, volleyError -> {
+            mAppSrl.setRefreshing(false);
+        });
     }
 }
