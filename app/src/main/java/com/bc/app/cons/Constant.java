@@ -5,6 +5,6 @@ package com.bc.app.cons;
  */
 public class Constant {
 
-    public static final String BASE_URL = "http://172.168.0.145:8086/";
+    public static final String BASE_URL = "http://172.168.0.145:8085/";
 
 }
