@@ -151,7 +151,7 @@ public class PreferencesUtil {
     /**
      * 设置是否第一次使用
      *
-     * @return 是否第一次使用
+     * @param isFirst 是否第一次使用
      */
     public void setFirst(Boolean isFirst) {
         saveParam("isFirst", isFirst);
@@ -169,7 +169,7 @@ public class PreferencesUtil {
     /**
      * 设置是否登录
      *
-     * @return 是否登录
+     * @param isLogin 是否登录
      */
     public void setLogin(Boolean isLogin) {
         saveParam("isLogin", isLogin);
