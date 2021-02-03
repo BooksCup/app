@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
+        android:baselineAligned="false"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -47,8 +48,8 @@
                 android:id="@+id/tv_unread_msg_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="14dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="14dp"
                 android:background="@mipmap/bg_unread"
                 android:gravity="center"
                 android:text="0"

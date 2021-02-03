@@ -193,10 +193,10 @@ public class PreferencesUtil {
     public Object getObject(String key) {
         String wordBase64 = preferences.getString(key, "");
         byte[] base64 = Base64.decode(wordBase64.getBytes(), Base64.DEFAULT);
-        ByteArrayInputStream bais = new ByteArrayInputStream(base64);
+        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(base64);
         try {
-            ObjectInputStream bis = new ObjectInputStream(bais);
-            object = bis.readObject();
+            ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
+            object = objectInputStream.readObject();
             Log.d(this.getClass().getSimpleName(), "Get object success");
             return object;
         } catch (Exception e) {

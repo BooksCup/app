@@ -28,9 +28,9 @@
             android:id="@+id/iv_edit"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
             android:padding="10dp"
             android:src="@mipmap/icon_edit"
             android:visibility="gone" />
@@ -39,9 +39,9 @@
             android:id="@+id/tv_finish"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
             android:gravity="center"
             android:text="完成"
             android:textColor="@color/colorAccent"
@@ -53,7 +53,6 @@
         android:id="@+id/srl_app"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_below="@+id/rl_header"
         android:layout_weight="1">
 
         <androidx.recyclerview.widget.RecyclerView
@@ -66,14 +65,12 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:layout_alignParentBottom="true"
         android:background="@color/alpha_05_black" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_fast"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:layout_alignParentBottom="true"
         android:background="@color/colorWhite"
         android:orientation="horizontal"
         android:paddingTop="5dp" />
