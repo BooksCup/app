@@ -93,7 +93,6 @@ public class DesktopFragment extends Fragment implements SwipeRefreshLayout.OnRe
     }
 
     private void getAppList() {
-
         String url = Constant.BASE_URL + "app";
 
         mVolleyUtil.get(url, response -> {

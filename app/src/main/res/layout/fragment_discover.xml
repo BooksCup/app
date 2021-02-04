@@ -5,9 +5,27 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/discover" />
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:elevation="4dp"
+        android:orientation="vertical">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tl_discover_tab"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:tabIndicatorColor="@color/colorTransparent"
+            app:tabMode="fixed"
+            app:tabSelectedTextColor="@color/colorAccent"
+            app:tabTextAppearance="@style/TabLayoutTextStyle"
+            app:tabTextColor="@color/colorTextGray" />
+    </LinearLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vp_discover_tab"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </LinearLayout>
