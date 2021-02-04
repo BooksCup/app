@@ -1,6 +1,5 @@
 package com.bc.app.fragment;
 
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -18,7 +17,6 @@ import com.bc.app.utils.VolleyUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -30,7 +28,7 @@ import butterknife.ButterKnife;
  *
  * @author zhou
  */
-public class InfoFragment extends BaseFragment {
+public class InfoFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
 
     @BindView(R.id.srl_info)
     SwipeRefreshLayout mInfoSrl;
@@ -70,11 +68,11 @@ public class InfoFragment extends BaseFragment {
     private void initView() {
         mVolleyUtil = VolleyUtil.getInstance(getActivity());
 
+        mInfoSrl.setOnRefreshListener(this);
+
         LinearLayoutManager manager = new LinearLayoutManager(getActivity());
         manager.setOrientation(LinearLayoutManager.VERTICAL);
-
         mInfoRv.setLayoutManager(manager);
-        mInfoRv.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
 
         mAdapter = new WeavePriceAdapter(R.layout.item_weave_price, mWeavePriceList);
 //        mAdapter.setOnItemClickListener(this);
@@ -89,7 +87,14 @@ public class InfoFragment extends BaseFragment {
             final DataProfile dataProfile = JSONArray.parseObject(response, DataProfile.class);
             List<WeavePrice> weavePriceList = dataProfile.getWeavePriceList();
             mAdapter.setNewData(weavePriceList);
+            mInfoSrl.setRefreshing(false);
         }, volleyError -> {
+            mInfoSrl.setRefreshing(false);
         });
+    }
+
+    @Override
+    public void onRefresh() {
+        getData();
     }
 }
