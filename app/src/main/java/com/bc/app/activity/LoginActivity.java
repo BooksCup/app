@@ -79,7 +79,7 @@ public class LoginActivity extends BaseActivity {
             mVolleyUtil.post(url, paramMap, response -> {
                 hideLoading();
                 final User user = JSON.parseObject(response, User.class);
-                // 登录成功后设置user和isLogin至sharedpreferences中
+                // 登录成功后设置user和isLogin至sharedPreferences中
                 PreferencesUtil.getInstance().setUser(user);
                 PreferencesUtil.getInstance().setLogin(true);
                 startActivity(new Intent(LoginActivity.this, MainActivity.class));

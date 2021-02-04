@@ -11,6 +11,7 @@
     <color name="color32">#323232</color>
     <color name="color50">#505050</color>
     <color name="color99">#999999</color>
+    <color name="colorF0">#f0f0f0</color>
 
     <!--    全透明色-->
     <color name="colorTransparent">#00000000</color>

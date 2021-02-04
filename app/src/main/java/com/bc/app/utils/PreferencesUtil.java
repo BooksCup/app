@@ -83,12 +83,12 @@ public class PreferencesUtil {
             }
 
             // 不是基本类型则是保存对象
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
             try {
-                ObjectOutputStream oos = new ObjectOutputStream(baos);
+                ObjectOutputStream oos = new ObjectOutputStream(stream);
                 oos.writeObject(object);
                 String productBase64 = Base64.encodeToString(
-                        baos.toByteArray(), Base64.DEFAULT);
+                        stream.toByteArray(), Base64.DEFAULT);
                 editor.putString(key, productBase64);
                 Log.d(this.getClass().getSimpleName(), "save object success");
             } catch (IOException e) {
@@ -185,14 +185,6 @@ public class PreferencesUtil {
             user = new User();
         }
         return user;
-    }
-
-    public void setNewFriendsUnreadNumber(int newFriendsUnreadNumber) {
-        saveParam("newFriendsUnreadNumber", newFriendsUnreadNumber);
-    }
-
-    public Integer getNewFriendsUnreadNumber() {
-        return (Integer) getParam("newFriendsUnreadNumber", 0);
     }
 
     public Object getObject(String key) {

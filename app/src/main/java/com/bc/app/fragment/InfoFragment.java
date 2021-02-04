@@ -13,6 +13,7 @@ import com.bc.app.cons.Constant;
 import com.bc.app.entity.info.DataProfile;
 import com.bc.app.entity.info.WeavePrice;
 import com.bc.app.utils.VolleyUtil;
+import com.bc.app.widget.view.ExchangeRateView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +37,7 @@ public class InfoFragment extends BaseFragment implements SwipeRefreshLayout.OnR
     @BindView(R.id.rv_info)
     RecyclerView mInfoRv;
 
+    protected ExchangeRateView mExchangeRateView;
     private List<WeavePrice> mWeavePriceList = new ArrayList<>();
     private WeavePriceAdapter mAdapter;
 
@@ -67,8 +69,9 @@ public class InfoFragment extends BaseFragment implements SwipeRefreshLayout.OnR
 
     private void initView() {
         mVolleyUtil = VolleyUtil.getInstance(getActivity());
-
         mInfoSrl.setOnRefreshListener(this);
+
+        mExchangeRateView = new ExchangeRateView(getActivity());
 
         LinearLayoutManager manager = new LinearLayoutManager(getActivity());
         manager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -77,6 +80,7 @@ public class InfoFragment extends BaseFragment implements SwipeRefreshLayout.OnR
         mAdapter = new WeavePriceAdapter(R.layout.item_weave_price, mWeavePriceList);
 //        mAdapter.setOnItemClickListener(this);
         mInfoRv.setAdapter(mAdapter);
+        mAdapter.setHeaderView(mExchangeRateView);
         getData();
     }
 
@@ -86,6 +90,7 @@ public class InfoFragment extends BaseFragment implements SwipeRefreshLayout.OnR
         mVolleyUtil.get(url, response -> {
             final DataProfile dataProfile = JSONArray.parseObject(response, DataProfile.class);
             List<WeavePrice> weavePriceList = dataProfile.getWeavePriceList();
+            mExchangeRateView.setDate(dataProfile.getHotExchange());
             mAdapter.setNewData(weavePriceList);
             mInfoSrl.setRefreshing(false);
         }, volleyError -> {
