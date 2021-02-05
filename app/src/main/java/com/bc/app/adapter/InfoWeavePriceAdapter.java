@@ -36,12 +36,14 @@ public class InfoWeavePriceAdapter extends BaseQuickAdapter<WeavePrice, BaseView
             e.printStackTrace();
         }
         TextView changeTv = helper.getView(R.id.tv_change);
-        if (change.floatValue() > 0) {
-            changeTv.setTextColor(ContextCompat.getColor(mContext, R.color.colorAccent));
-        } else if (change.floatValue() < 0) {
-            changeTv.setTextColor(ContextCompat.getColor(mContext, R.color.colorStyleG));
-        } else {
-            changeTv.setTextColor(ContextCompat.getColor(mContext, R.color.color50));
+        if (null != change) {
+            if (change.floatValue() > 0) {
+                changeTv.setTextColor(ContextCompat.getColor(mContext, R.color.colorAccent));
+            } else if (change.floatValue() < 0) {
+                changeTv.setTextColor(ContextCompat.getColor(mContext, R.color.colorStyleG));
+            } else {
+                changeTv.setTextColor(ContextCompat.getColor(mContext, R.color.color50));
+            }
         }
 
         helper.setText(R.id.tv_name, item.getName())

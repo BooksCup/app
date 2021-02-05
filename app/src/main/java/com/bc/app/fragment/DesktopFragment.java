@@ -99,8 +99,6 @@ public class DesktopFragment extends Fragment implements SwipeRefreshLayout.OnRe
             final List<App> appList = JSONArray.parseArray(response, App.class);
             mAppAdapter.setNewData(appList);
             mAppSrl.setRefreshing(false);
-        }, volleyError -> {
-            mAppSrl.setRefreshing(false);
-        });
+        }, volleyError -> mAppSrl.setRefreshing(false));
     }
 }

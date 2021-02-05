@@ -13,7 +13,7 @@ import com.bc.app.R;
  */
 public class LoadingDialog extends AlertDialog {
 
-    private static LoadingDialog mLoadingDialog;
+    protected static LoadingDialog mLoadingDialog;
 
     protected LoadingDialog(Context context, int themeResId) {
         super(context, themeResId);

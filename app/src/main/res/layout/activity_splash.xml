@@ -5,4 +5,4 @@
     android:layout_height="match_parent"
     android:background="@mipmap/bg_splash"
     android:fitsSystemWindows="true"
-    android:orientation="vertical"></FrameLayout>
+    android:orientation="vertical" />

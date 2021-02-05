@@ -1,26 +1,29 @@
 package com.bc.app.utils;
 
 
-import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+/**
+ * md5工具类
+ *
+ * @author zhou
+ */
 public class MD5Util {
 
     /**
      * md5加密 32位
      *
-     * @param content
-     * @return
+     * @param content 待加密内容
+     * @return md5加密后内容
      */
     public static String md5Decode32(String content) {
         byte[] hash;
         try {
-            hash = MessageDigest.getInstance("MD5").digest(content.getBytes("UTF-8"));
+            hash = MessageDigest.getInstance("MD5").digest(content.getBytes(StandardCharsets.UTF_8));
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException("NoSuchAlgorithmException", e);
-        } catch (UnsupportedEncodingException e) {
-            throw new RuntimeException("UnsupportedEncodingException", e);
         }
         //对生成的16字节数组进行补零操作
         StringBuilder hex = new StringBuilder(hash.length * 2);
@@ -33,13 +36,4 @@ public class MD5Util {
         return hex.toString();
     }
 
-    /**
-     * md5加密 16位 取32位加密中间部分
-     *
-     * @param content
-     * @return
-     */
-    public static String md5Decode16(String content) {
-        return md5Decode32(content).substring(8, 24);
-    }
 }

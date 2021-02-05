@@ -70,7 +70,7 @@
         android:background="@color/alpha_05_black" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rlist_fast"
+        android:id="@+id/rv_fast"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_alignParentBottom="true"

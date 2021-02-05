@@ -19,9 +19,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PreferencesUtil {
+
     private SharedPreferences preferences = null;
     private SharedPreferences.Editor editor = null;
-    private Object object;
+    Object object;
     public static PreferencesUtil preferencesUtil;
 
     public static PreferencesUtil getInstance() {
@@ -52,10 +53,10 @@ public class PreferencesUtil {
     }
 
     /**
-     * 保存数据 , 所有的类型都适用
+     * 保存数据(所有的类型都适用)
      *
-     * @param key
-     * @param object
+     * @param key    键
+     * @param object 值
      */
     public synchronized void saveParam(String key, Object object) {
         if (editor == null)
@@ -111,11 +112,11 @@ public class PreferencesUtil {
 
 
     /**
-     * 得到保存数据的方法，所有类型都适用
+     * 获取数据(所有类型都适用)
      *
-     * @param key
-     * @param defaultObject
-     * @return
+     * @param key           键
+     * @param defaultObject 默认值
+     * @return 值
      */
     public Object getParam(String key, Object defaultObject) {
         if (defaultObject == null) {
@@ -139,34 +140,36 @@ public class PreferencesUtil {
     }
 
     /**
-     * Whether to use for the first time
+     * 是否第一次使用
      *
-     * @return
+     * @return true: 是  false: 否
      */
     public boolean isFirst() {
         return (Boolean) getParam("isFirst", true);
     }
 
     /**
-     * set user first use is false
+     * 设置是否第一次使用
      *
-     * @return
+     * @return 是否第一次使用
      */
     public void setFirst(Boolean isFirst) {
         saveParam("isFirst", isFirst);
     }
 
     /**
-     * Set up the first time login
+     * 是否登录
      *
-     * @return
+     * @return true: 是  false: 否
      */
     public boolean isLogin() {
         return (Boolean) getParam("isLogin", false);
     }
 
     /**
-     * @return
+     * 设置是否登录
+     *
+     * @return 是否登录
      */
     public void setLogin(Boolean isLogin) {
         saveParam("isLogin", isLogin);
@@ -197,7 +200,7 @@ public class PreferencesUtil {
             Log.d(this.getClass().getSimpleName(), "Get object success");
             return object;
         } catch (Exception e) {
-
+            Log.d(this.getClass().getSimpleName(), "Get object is error");
         }
         Log.e(this.getClass().getSimpleName(), "Get object is error");
         return null;

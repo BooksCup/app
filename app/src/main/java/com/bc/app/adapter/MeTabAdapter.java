@@ -17,14 +17,15 @@ import androidx.fragment.app.FragmentPagerAdapter;
  */
 public class MeTabAdapter extends FragmentPagerAdapter {
 
-    private String[] mTitles = new String[]{"我"};
+    private final String[] mTitles = new String[]{"我"};
 
-    private BaseFragment[] mBaseFragments = new BaseFragment[mTitles.length];
+    private final BaseFragment[] mBaseFragments = new BaseFragment[mTitles.length];
 
     public MeTabAdapter(FragmentManager fm) {
         super(fm);
     }
 
+    @NonNull
     @Override
     public Fragment getItem(int position) {
         if (mBaseFragments[position] == null) {

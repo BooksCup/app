@@ -41,7 +41,7 @@
                 android:layout_marginTop="2dp"
                 android:text="@string/chats"
                 android:textColor="#353535"
-                android:textSize="11sp" />
+                android:textSize="@dimen/main_tab_text_size" />
 
             <TextView
                 android:id="@+id/tv_unread_msg_number"
@@ -83,7 +83,7 @@
                 android:layout_marginTop="2dp"
                 android:text="@string/desktop"
                 android:textColor="#353535"
-                android:textSize="11sp" />
+                android:textSize="@dimen/main_tab_text_size" />
 
         </RelativeLayout>
 
@@ -113,7 +113,7 @@
                 android:layout_marginTop="2dp"
                 android:text="@string/discover"
                 android:textColor="#353535"
-                android:textSize="11sp" />
+                android:textSize="@dimen/main_tab_text_size" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -142,7 +142,7 @@
                 android:layout_marginTop="2dp"
                 android:text="@string/calendar"
                 android:textColor="#353535"
-                android:textSize="11sp" />
+                android:textSize="@dimen/main_tab_text_size" />
 
         </RelativeLayout>
 
@@ -172,7 +172,7 @@
                 android:layout_marginTop="2dp"
                 android:text="@string/me"
                 android:textColor="#353535"
-                android:textSize="11sp" />
+                android:textSize="@dimen/main_tab_text_size" />
         </RelativeLayout>
     </LinearLayout>
 

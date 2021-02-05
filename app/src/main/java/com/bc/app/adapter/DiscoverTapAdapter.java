@@ -13,13 +13,14 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 public class DiscoverTapAdapter extends FragmentPagerAdapter {
 
-    private String[] mTitles = new String[]{"资讯", "商品", "人才"};
-    private BaseFragment[] mBaseFragments = new BaseFragment[mTitles.length];
+    private final String[] mTitles = new String[]{"资讯", "商品", "人才"};
+    private final BaseFragment[] mBaseFragments = new BaseFragment[mTitles.length];
 
     public DiscoverTapAdapter(FragmentManager fm) {
         super(fm);
     }
 
+    @NonNull
     @Override
     public Fragment getItem(int position) {
         if (mBaseFragments[position] == null) {

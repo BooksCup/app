@@ -12,19 +12,18 @@ import com.bc.app.fragment.DesktopFragment;
 import com.bc.app.fragment.DiscoverFragment;
 import com.bc.app.fragment.MeFragment;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 public class MainActivity extends FragmentActivity {
 
-    private Fragment[] mFragments;
-    private ChatsFragment mChatsFragment;
-    private DesktopFragment mDesktopFragment;
-    private DiscoverFragment mDiscoverFragment;
-    private CalendarFragment mCalendarFragment;
-    private MeFragment mMeFragment;
+    Fragment[] mFragments;
+    ChatsFragment mChatsFragment;
+    DesktopFragment mDesktopFragment;
+    DiscoverFragment mDiscoverFragment;
+    CalendarFragment mCalendarFragment;
+    MeFragment mMeFragment;
 
     private ImageView[] mMainButtonIvs;
     private TextView[] mMainButtonTvs;

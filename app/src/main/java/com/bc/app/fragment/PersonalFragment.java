@@ -73,9 +73,7 @@ public class PersonalFragment extends BaseFragment implements SwipeRefreshLayout
             mBusinessCardView.setDate(user);
             PreferencesUtil.getInstance().setUser(user);
             mMeSrl.setRefreshing(false);
-        }, volleyError -> {
-            mMeSrl.setRefreshing(false);
-        });
+        }, volleyError -> mMeSrl.setRefreshing(false));
     }
 
     @OnClick({R.id.ll_setting})

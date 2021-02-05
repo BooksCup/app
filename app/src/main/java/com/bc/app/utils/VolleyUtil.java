@@ -4,7 +4,6 @@ package com.bc.app.utils;
 import android.content.Context;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.NetworkError;
 import com.android.volley.Request;
@@ -35,8 +34,8 @@ public class VolleyUtil {
     /**
      * 单例模式
      *
-     * @param context
-     * @return
+     * @param context 上下文
+     * @return 单例volley工具类
      */
     public static VolleyUtil getInstance(Context context) {
         if (volleyUtil == null) {
@@ -66,7 +65,7 @@ public class VolleyUtil {
     public void post(String url, final Map<String, String> params, Response.Listener<String> listener, Response.ErrorListener errorListener) {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, listener, errorListener) {
             @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
+            protected Map<String, String> getParams() {
                 return params;
             }
         };
@@ -82,7 +81,7 @@ public class VolleyUtil {
                                Response.ErrorListener errorListener) {
         StringRequest stringRequest = new StringRequest(Request.Method.PUT, url, listener, errorListener) {
             @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
+            protected Map<String, String> getParams() {
                 return params;
             }
         };
