@@ -1,6 +1,7 @@
 package com.bc.app.widget.view;
 
 import android.content.Context;
+import android.content.Intent;
 import android.text.Html;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -9,11 +10,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bc.app.R;
+import com.bc.app.activity.info.WeavePriceActivity;
 import com.bc.app.entity.info.HotExchange;
 
 import androidx.annotation.Nullable;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class ExchangeRateView extends RelativeLayout {
 
@@ -55,6 +58,16 @@ public class ExchangeRateView extends RelativeLayout {
         mCurrentPriceTv.setText(Html.fromHtml(hotExchange.getCurrentPrice()));
         mChangeTv.setText(Html.fromHtml(hotExchange.getChange()));
         mCreateTimeTv.setText(hotExchange.getCreateTime());
+    }
+
+    @OnClick({R.id.ll_header})
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.ll_header:
+                Intent intent = new Intent(getContext(), WeavePriceActivity.class);
+                getContext().startActivity(intent);
+                break;
+        }
     }
 
 }
