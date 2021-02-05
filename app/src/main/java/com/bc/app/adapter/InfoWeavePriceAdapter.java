@@ -18,9 +18,9 @@ import androidx.core.content.ContextCompat;
  *
  * @author zhou
  */
-public class WeavePriceAdapter extends BaseQuickAdapter<WeavePrice, BaseViewHolder> {
+public class InfoWeavePriceAdapter extends BaseQuickAdapter<WeavePrice, BaseViewHolder> {
 
-    public WeavePriceAdapter(int layoutResId, @Nullable List<WeavePrice> data) {
+    public InfoWeavePriceAdapter(int layoutResId, @Nullable List<WeavePrice> data) {
         super(layoutResId, data);
     }
 

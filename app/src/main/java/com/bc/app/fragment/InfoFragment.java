@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 
 import com.alibaba.fastjson.JSONArray;
 import com.bc.app.R;
-import com.bc.app.adapter.WeavePriceAdapter;
+import com.bc.app.adapter.InfoWeavePriceAdapter;
 import com.bc.app.cons.Constant;
 import com.bc.app.entity.info.DataProfile;
 import com.bc.app.entity.info.WeavePrice;
@@ -39,7 +39,7 @@ public class InfoFragment extends BaseFragment implements SwipeRefreshLayout.OnR
 
     protected ExchangeRateView mExchangeRateView;
     private List<WeavePrice> mWeavePriceList = new ArrayList<>();
-    private WeavePriceAdapter mAdapter;
+    private InfoWeavePriceAdapter mAdapter;
 
     private VolleyUtil mVolleyUtil;
 
@@ -77,7 +77,7 @@ public class InfoFragment extends BaseFragment implements SwipeRefreshLayout.OnR
         manager.setOrientation(LinearLayoutManager.VERTICAL);
         mInfoRv.setLayoutManager(manager);
 
-        mAdapter = new WeavePriceAdapter(R.layout.item_weave_price, mWeavePriceList);
+        mAdapter = new InfoWeavePriceAdapter(R.layout.item_info_weave_price, mWeavePriceList);
 //        mAdapter.setOnItemClickListener(this);
         mInfoRv.setAdapter(mAdapter);
         mAdapter.setHeaderView(mExchangeRateView);
